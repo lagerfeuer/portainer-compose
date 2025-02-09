@@ -39,14 +39,13 @@ services:
       AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
       AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
       VIRTUAL_HOST: auth.homelab.lan
-      VIRTUAL_PORT: 9090
-      COMPOSE_PORT_HTTP: 9090
+      VIRTUAL_PORT: 9000
     volumes:
       - ./media:/media
       - ./custom-templates:/templates
     ports:
       - "${COMPOSE_PORT_HTTP:-9000}:9000"
-      - "${COMPOSE_PORT_HTTPS:-9443}:9443"
+      # - "${COMPOSE_PORT_HTTPS:-9443}:9443"
     depends_on:
       postgresql:
         condition: service_healthy
