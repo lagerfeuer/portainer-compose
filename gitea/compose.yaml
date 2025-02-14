@@ -28,8 +28,8 @@ services:
     restart: always
     environment:
       - POSTGRES_USER=gitea
-      - POSTGRES_PASSWORD=gitea
-      - POSTGRES_DB=${PG_PASSWORD:?must be set}
+      - POSTGRES_PASSWORD=${PG_PASSWORD:?must be set}
+      - POSTGRES_DB=gitea
     volumes:
       - ./postgres:/var/lib/postgresql/data
 
